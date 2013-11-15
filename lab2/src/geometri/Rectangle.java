@@ -4,6 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle extends GeometricalFormAbstract{
+	
+	/**
+	 * The width of the rectangle 
+	 */
+	protected int width; 
+	/**
+	 * The height of the rectangle
+	 */
+	protected int height;
+	
+	public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
+		
+	}
+	public Rectangle(GeometricalForm f, int width, int height, Color c){
+		
+	}
 
 	@Override
 	public void fill(Graphics g) {

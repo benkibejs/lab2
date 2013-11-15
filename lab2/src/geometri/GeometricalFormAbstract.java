@@ -34,4 +34,5 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 		return posY;
 	}
 	
+	
 }

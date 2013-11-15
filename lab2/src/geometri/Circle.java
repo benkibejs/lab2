@@ -3,8 +3,26 @@ package geometri;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle implements GeometricalForm {
-
+public class Circle extends GeometricalFormAbstract {
+	
+	/**
+	 * The radius of the circle
+	 */
+	protected int radius;
+	
+	public Circle(int x, int y, int radius, Color c) throws IllegalPositionException{
+		if ( x<0 || y<0 ) throw new IllegalPositionException();
+		posX=x;
+		posY=y;
+		this.radius=radius;
+		color = c;
+		
+	}
+	
+	public Circle(GeometricalForm f, int radius, Color c){
+		
+	}
+	
 	@Override
 	public int compareTo(GeometricalForm arg0) {
 		// TODO Auto-generated method stub
