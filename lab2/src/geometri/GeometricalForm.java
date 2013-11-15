@@ -1,4 +1,4 @@
-package lab2;
+package geometri;
 
 public interface GeometricalForm extends Comparable<GeometricalForm>{
 
