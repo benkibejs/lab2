@@ -4,17 +4,17 @@ import java.awt.*;
 
 public class Oval extends GeometricalFormAbstract{
 	/**
-	 * The width of the oval
+	 * The width of the oval.
 	 */ 
 	protected int width;
 	/**
-	 * The height of the oval
+	 * The height of the oval.
 	 */
 	protected int height;
 	 
 	/**
 	 * @param x The x-coordinate of the oval.
-	 * @param y The y-coordiante of the oval
+	 * @param y The y-coordiante of the oval.
 	 * @param The width The width of the oval.
 	 * @param The height The height of the oval.
 	 * @param c The color of the oval.
@@ -24,7 +24,7 @@ public class Oval extends GeometricalFormAbstract{
 		 
 	}
 	/**
-	 * @param f This GeometricalForms position will be the position of the oval.
+	 * @param f The GeometricalForm that defines the position of the oval.
 	 * @param width The width of the oval.
 	 * @param height The height of the oval.
 	 * @param c The color of the oval.

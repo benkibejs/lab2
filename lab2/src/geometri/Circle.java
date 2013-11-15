@@ -6,10 +6,17 @@ import java.awt.Graphics;
 public class Circle extends GeometricalFormAbstract {
 	
 	/**
-	 * The radius of the circle
+	 * The radius of the circle.
 	 */
 	protected int radius;
 	
+	/**
+	 * @param x The x-coordinate of the circle.
+	 * @param y The y-coordinate of the circle.
+	 * @param radius The radius of the circle.
+	 * @param c The color of the circle.
+	 * @throws IllegalPositionException
+	 */
 	public Circle(int x, int y, int radius, Color c) throws IllegalPositionException{
 		if ( x<0 || y<0 ) throw new IllegalPositionException();
 		posX=x;
@@ -19,6 +26,11 @@ public class Circle extends GeometricalFormAbstract {
 		
 	}
 	
+	/**
+	 * @param f The GeometricalForm that defines the position of the circle.
+	 * @param radius The radius of the circle.
+	 * @param c The color of the circle.
+	 */
 	public Circle(GeometricalForm f, int radius, Color c){
 		
 	}

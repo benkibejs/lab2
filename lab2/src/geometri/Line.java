@@ -13,10 +13,10 @@ public class Line extends GeometricalFormAbstract{
 	protected int posY2;
 	
 	/**
-	 * @param x1 The x-coordinate at the first point of the line
-	 * @param y1 The y-coordinate at the first point of the line
-	 * @param x2 The x-coordinate at the last point of the line
-	 * @param y2 The y-coordinate at the last point of the line
+	 * @param x1 The x-coordinate at the first point of the line.
+	 * @param y1 The y-coordinate at the first point of the line.
+	 * @param x2 The x-coordinate at the last point of the line.
+	 * @param y2 The y-coordinate at the last point of the line.
 	 * @param c The color of the line.
 	 * @throws IllegalPositionException
 	 */
@@ -33,8 +33,8 @@ public class Line extends GeometricalFormAbstract{
 		}
 	}
 	/**
-	 * @param f1 This GeometricalForms position is the first point of the line.
-	 * @param f2 This GeometriclaForms position is the last point of the line
+	 * @param f1 The GeometricalForm that defines the position of the first point of the line.
+	 * @param f2 The GeometricalForm that defines the position of the last point of the line.
 	 * @param c The color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c){
