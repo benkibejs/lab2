@@ -6,13 +6,17 @@ public class Point extends GeometricalFormAbstract{
 	
 	/**
 	 * @param x The x-coordinate of this point
-	 * @param y
-	 * @param c
+	 * @param y The y-coordinate of this point
+	 * @param c The color of this point
 	 * @throws IllegalPositionException
 	 */
 	public Point(int x, int y, Color c) throws IllegalPositionException{
 		
 	}
+	/**
+	 * @param f This GeometricalForms position will be the position of the point.
+	 * @param c The color of the point.
+	 */
 	public Point(GeometricalForm f, Color c){
 		
 	}

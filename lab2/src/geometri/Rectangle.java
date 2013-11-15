@@ -14,9 +14,23 @@ public class Rectangle extends GeometricalFormAbstract{
 	 */
 	protected int height;
 	
+	/**
+	 * @param x The x-coordinate of the rectangle. 
+	 * @param y The y-coordinate of the rectangle.
+	 * @param width The width of the rectangle.
+	 * @param height The height of the rectangle.
+	 * @param c The color of the rectangle.
+	 * @throws IllegalPositionException
+	 */
 	public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
 		
 	}
+	/**
+	 * @param f The GeometricalForm that defines the position of the rectangle.
+	 * @param width The width of the rectangle.
+	 * @param height The height of the rectangle.
+	 * @param c The color of the rectangle.
+	 */
 	public Rectangle(GeometricalForm f, int width, int height, Color c){
 		
 	}
