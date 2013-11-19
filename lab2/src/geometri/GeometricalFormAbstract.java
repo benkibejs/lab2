@@ -2,9 +2,26 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * An abstract for a geometrical form that implements methods and declares 
+ * variables that exsist in every implementation of a geometrical form. This
+ * to make it easier to make new geometrical forms and minimize work input.
+ * 
+ * @author Grupp 107: Rasti and Benjamin
+ *
+ */
 public abstract class GeometricalFormAbstract implements GeometricalForm{
+	/**
+	 * The x-coordinate of the geometrical form.
+	 */
 	protected int posX;
+	/**
+	 * The y-coordinate of the geometrical form.
+	 */
 	protected int posY;
+	/**
+	 * The color of the geometrical form.
+	 */
 	protected Color color;
 	
 	@Override
