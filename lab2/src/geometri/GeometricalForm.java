@@ -29,8 +29,52 @@ import java.awt.*;
  * @author (Bror Bjerner)
  * @version (nov 2012)
  */
-public interface GeometricalForm
-       extends   Comparable<GeometricalForm> {
+public interface GeometricalForm extends Comparable<GeometricalForm> {
+
+
+	/**
+	 * Get the x coordinate of this forms position.
+	 *
+	 * @return the x coordinate.
+	 */
+	public int getX();
+
+	/**
+	 * Give the y coordinate of this forms position.
+	 *
+	 * @return the y coordinate.
+	 */
+	public int getY();
+
+	/**
+	 * Get the colour of this form.
+	 *
+	 * @return the colour of this form.
+	 */
+
+	public Color getColor();
+
+	/**
+	 * Get the width of this forms surrounding rectangle.
+	 *
+	 * @return the width.
+	 */
+	public int getWidth();
+
+	/**
+	 * Get the height of this forms surrounding rectangle.
+	 *
+	 * @return the x coordinate.
+	 */
+	public int getHeight();
+
+   /**
+    * Get the perimeter of this form rounded
+    * to closest integer.
+    *
+    * @return the computed perimeter.
+    */
+   public int getPerimeter();
 
    /**
     * Get the area of this form rounded
@@ -39,7 +83,7 @@ public interface GeometricalForm
     * @return the computed area.
     */
    public int getArea();
-
+   
     /** 
      * The method <tt>compareTo</tt> compares the area of the forms
      * to decide if the given geometrical form is less or greater
@@ -63,42 +107,6 @@ public interface GeometricalForm
    public void fill( Graphics g );
 
    /**
-    * Get the colour of this form.
-    *
-    * @return the colour of this form.
-    */
-
-   public Color getColor();
-
-   /**
-    * Get the width of this forms surrounding rectangle.
-    *
-    * @return the width.
-    */
-   public int getWidth();
-
-   /**
-    * Get the height of this forms surrounding rectangle.
-    *
-    * @return the x coordinate.
-    */
-   public int getHeight();
-
-   /**
-    * Get the x coordinate of this forms position.
-    *
-    * @return the x coordinate.
-    */
-   public int getX();
-
-   /**
-    * Give the y coordinate of this forms position.
-    *
-    * @return the y coordinate.
-    */
-   public int getY();
-
-   /**
     * Move the form the given distances. 
     * Check if the new coordinates are legal and
     * if they are, set the position to the new coordinates.
@@ -113,13 +121,6 @@ public interface GeometricalForm
    public void move( int dx, int dy )
           throws IllegalPositionException;
 
-   /**
-    * Get the perimeter of this form rounded
-    * to closest integer.
-    *
-    * @return the computed perimeter.
-    */
-   public int getPerimeter();
 
    /**
     * Place the form on given coordinates.

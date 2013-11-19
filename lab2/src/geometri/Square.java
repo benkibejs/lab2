@@ -16,7 +16,11 @@ public class Square extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Square(int x, int y, int side, Color c) throws IllegalPositionException{
-		
+		if ( x<0 || y<0 ) throw new IllegalPositionException();
+		posX=x;
+		posY=y;
+		color = c;
+		this.side = side;
 	}
 	
 	/**
@@ -25,44 +29,36 @@ public class Square extends GeometricalFormAbstract{
 	 * @param c The color of the square.
 	 */
 	public Square(GeometricalForm f, int side, Color c){
-		
-	}
-
-
-	@Override
-	public int getArea() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int compareTo(GeometricalForm f) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void fill(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		posX = f.getX();
+		posY = f.getY();
+		color = c;
+		this.side = side;		
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return side;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return side;
 	}
 
 	@Override
 	public int getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
+		return side*4;
+	}
+
+	@Override
+	public int getArea() {
+		return side*side;
+	}
+
+	@Override
+	public void fill(Graphics g) {
+		g.setColor(color);
+		g.fillRect(posX, posY, side, side);
 	}
 
 }

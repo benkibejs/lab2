@@ -22,7 +22,10 @@ public class Rectangle extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-		
+		if ( x<0 || y<0 ) throw new IllegalPositionException();
+		posX=x;
+		posY=y;
+		color = c;
 	}
 	/**
 	 * @param f The GeometricalForm that defines the position of the rectangle.
@@ -31,73 +34,32 @@ public class Rectangle extends GeometricalFormAbstract{
 	 * @param c The color of the rectangle.
 	 */
 	public Rectangle(GeometricalForm f, int width, int height, Color c){
-		
+		posX = f.getX();
+		posY = f.getY();
+		color = c;
+		this.width = width;
+		this.height = height;
 	}
-
-	@Override
-	public void fill(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getArea() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return width;
 	}
-
 	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getHeight() {
+		return height;
 	}
-
 	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getPerimeter() {
+		return width*2 + height*2;
 	}
-
 	@Override
-	public void move(int dx, int dy) {
-		// TODO Auto-generated method stub
-		
+	public int getArea() {
+		return width*height;
 	}
-
 	@Override
-	public void place(int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int compareTo(GeometricalForm o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void fill(Graphics g) {
+		g.setColor(color);
+		g.fillRect(posX, posY, width, height);
 	}
 
 }

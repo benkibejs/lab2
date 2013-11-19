@@ -21,7 +21,12 @@ public class Oval extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-		 
+		if ( x<0 || y<0 ) throw new IllegalPositionException();
+		posX=x;
+		posY=y;
+		color = c;
+		this.width = width;
+		this.height = height;
 	}
 	/**
 	 * @param f The GeometricalForm that defines the position of the oval.
@@ -30,44 +35,40 @@ public class Oval extends GeometricalFormAbstract{
 	 * @param c The color of the oval.
 	 */
 	public Oval(GeometricalForm f, int width, int height, Color c){
+		posX = f.getX();
+		posY = f.getY();
+		color = c;
+		this.width = width;
+		this.height = height;
 	 
-	 
 	}
-
-	@Override
-	public int getArea() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int compareTo(GeometricalForm f) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void fill(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return width;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return height;
 	}
-
+	
 	@Override
 	public int getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int) (Math.PI*Math.sqrt(2*(width*width+height*height - (width-height)*(width-height)/2) )+0.5);
 	}
+	
+	@Override
+	public int getArea() {
+		return (int) (Math.PI*width*height+0.5);
+	}
+	
+	@Override
+	public void fill(Graphics g) {
+		//g.drawOval(getX(), getY(), getWidth(), getHeight());
+		g.setColor(color);
+		g.fillOval(getX(), getY(), getWidth(), getHeight());
+	}
+
 
 }

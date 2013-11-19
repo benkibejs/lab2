@@ -25,6 +25,16 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 	protected Color color;
 	
 	@Override
+	public int getX() {
+		return posX;
+	}
+	
+	@Override
+	public int getY() {
+		return posY;
+	}
+	
+	@Override
 	public Color getColor() {
 		return color;
 	}
@@ -42,14 +52,9 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 	}
 	
 	@Override
-	public int getX() {
-		return posX;
+	public int compareTo(GeometricalForm f) {
+		if (getArea()!=f.getArea()) return getArea()-f.getArea();
+		else return getPerimeter()-f.getPerimeter();
 	}
-	
-	@Override
-	public int getY() {
-		return posY;
-	}
-	
 	
 }

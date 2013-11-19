@@ -21,8 +21,8 @@ public class Circle extends GeometricalFormAbstract {
 		if ( x<0 || y<0 ) throw new IllegalPositionException();
 		posX=x;
 		posY=y;
-		this.radius=radius;
 		color = c;
+		this.radius=radius;
 		
 	}
 	
@@ -36,69 +36,30 @@ public class Circle extends GeometricalFormAbstract {
 	}
 	
 	@Override
-	public int compareTo(GeometricalForm arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void fill(Graphics g) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getArea() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getWidth() {
+		return radius*2;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return radius*2;
 	}
-
+	
 	@Override
 	public int getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int) (2*Math.PI*radius+0.5);
 	}
-
+	
 	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getArea() {
+		return (int) (Math.PI*radius*radius+0.5);
 	}
-
+	
 	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void move(int dx, int dy) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void place(int x, int y) {
-		// TODO Auto-generated method stub
-
+	public void fill(Graphics g) {
+		//g.drawOval(getX(), getY(), getWidth(), getHeight());
+		g.setColor(color);
+		g.fillOval(getX(), getY(), getWidth(), getHeight());
 	}
 
 }
