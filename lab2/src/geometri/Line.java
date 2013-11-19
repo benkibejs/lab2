@@ -4,13 +4,13 @@ import java.awt.*;
 
 public class Line extends GeometricalFormAbstract{
 	/**
-	 * the x coordinate at the down rightmost end of the line.
+	 * the distance the line goes to the right.
 	 */
-	protected int posX2;
+	protected int dX;
 	/**
-	 * the y coordinate at the down rightmost end of the line.
+	 * the distance the line goes down.
 	 */
-	protected int posY2;
+	protected int dY;
 	
 	/**
 	 * @param x1 The x-coordinate at the first point of the line.
@@ -24,17 +24,17 @@ public class Line extends GeometricalFormAbstract{
 		if ( x1<0 || y1<0 || x2<0 || y2<0) throw new IllegalPositionException();
 		if(x1<x2) {
 			posX=x1;
-			posX2=x2;
+			dX=x2-x1;
 		}else{
 			posX=x2;
-			posX2=x1;
+			dX=x1-x2;
 		}
 		if(y1<y2){
 			posY=y1;
-			posY2=y2;
+			dY=y2-y1;
 		}else{
 			posY=y2;
-			posY2=y1;			
+			dY=y1-y2;			
 		}
 		color = c;
 	}
@@ -46,27 +46,27 @@ public class Line extends GeometricalFormAbstract{
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c){
 		if(f1.getX()<f2.getX()) {
 			posX=f1.getX();
-			posX2=f2.getX();
+			dX=f2.getX()-f1.getX();
 		}else{
 			posX=f2.getX();
-			posX2=f1.getX();
+			dX=f1.getX()-f2.getX();
 		}
 		if(f1.getY()<f2.getY()){
 			posY=f1.getY();
-			posY2=f2.getY();
+			dY=f2.getY()-f1.getY();
 		}else{
 			posY=f2.getY();
-			posY2=f1.getY();			
+			dY=f1.getY()-f2.getY();			
 		}
 		color = c;
 	}
 	@Override
 	public int getWidth() {
-		return posX2-posX;
+		return dX;
 	}
 	@Override
 	public int getHeight() {
-		return posY2-posY;
+		return dY;
 	}
 	@Override
 	public int getPerimeter() {
@@ -79,7 +79,7 @@ public class Line extends GeometricalFormAbstract{
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.drawLine(posX, posY, posX2, posY2);
+		g.drawLine(posX, posY, posX + dX, posY + dY);
 	}
 
 }

@@ -26,6 +26,8 @@ public class Rectangle extends GeometricalFormAbstract{
 		posX=x;
 		posY=y;
 		color = c;
+		this.width = width;
+		this.height = height;
 	}
 	/**
 	 * @param f The GeometricalForm that defines the position of the rectangle.
