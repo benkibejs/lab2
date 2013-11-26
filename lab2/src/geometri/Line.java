@@ -33,7 +33,11 @@ public class Line extends GeometricalFormAbstract{
 			posY=y2;
 		}
 		
-		direction = ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)) ? 1 : 0;
+		if ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)){
+			direction = 1;
+		}else {
+			direction = 0;
+		}
 		
 		width = Math.abs(x2-x1);
 		height= Math.abs(y2-y1);
@@ -51,8 +55,11 @@ public class Line extends GeometricalFormAbstract{
 		if(f1.getY()<f2.getY())	posY=f1.getY();
 		else posY=f2.getY();	
 		
-		direction = ((posX == f1.getX() && posY == f1.getY()) || (posX != f1.getX() && posY != f1.getY())) ? 1 : 0;
-		
+		if ((posX == f1.getX() && posY == f1.getY()) || (posX == f2.getX() && posY == f2.getY())){
+			direction = 1;
+		}else {
+			direction = 0;
+		}		
 		width = Math.abs(f2.getX()-f1.getX());
 		height= Math.abs(f2.getY()-f1.getY());
 		color = c;
