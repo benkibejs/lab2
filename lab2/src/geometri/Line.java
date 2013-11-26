@@ -17,30 +17,19 @@ public class Line extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
+		
 		if ( x1<0 || y1<0 || x2<0 || y2<0) throw new IllegalPositionException();
 		
-		if (x1<x2){
-			posX=x1;
-			width = x2-x1;
-		}else{
-			posX=x2;
-			width = x1-x2;
-		}
+		if (x1<x2) posX=x1;
+		else posX=x2;
 		
-		if (y1<y2){
-			posY=y1;
-			height= y2-y1;
-		}else {
-			posY=y2;
-			height= y1-y2;
-		}
+		if (y1<y2) posY=y1;
+		else posY=y2;
 		
-		if (!((posX == x1 && posY == y1) || (posX == x2 && posY == y2))){
-			direction = 1;
-		}else {
-			direction = 0;
-		}
+		direction = ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)) ? 1 : 0;
 		
+		width = Math.abs(x2-x1);
+		height= Math.abs(y2-y1);
 		color = c;
 	}
 	/**
@@ -49,17 +38,15 @@ public class Line extends GeometricalFormAbstract{
 	 * @param c The color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c){
+		
 		if(f1.getX()<f2.getX()) posX=f1.getX();
 		else posX=f2.getX();
 		
 		if(f1.getY()<f2.getY())	posY=f1.getY();
 		else posY=f2.getY();	
 		
-		if ((posX == f1.getX() && posY == f1.getY()) || (posX == f2.getX() && posY == f2.getY())){
-			direction = 1;
-		}else {
-			direction = 0;
-		}		
+		direction = ((posX == f1.getX() && posY == f1.getY()) || (posX != f1.getX() && posY != f1.getY())) ? 1 : 0;
+		
 		width = Math.abs(f2.getX()-f1.getX());
 		height= Math.abs(f2.getY()-f1.getY());
 		color = c;
@@ -78,7 +65,7 @@ public class Line extends GeometricalFormAbstract{
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.drawLine(posX, posY + (direction-1)*height, posX + width, posY - direction*height);
+		g.drawLine(posX, posY - (direction-1)*height, posX + width, posY + direction*height);
 	}
 
 }
