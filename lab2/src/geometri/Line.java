@@ -21,26 +21,26 @@ public class Line extends GeometricalFormAbstract{
 		
 		if (x1<x2){
 			posX=x1;
-		}
-		else{
+			width = x2-x1;
+		}else{
 			posX=x2;
+			width = x1-x2;
 		}
 		
 		if (y1<y2){
 			posY=y1;
-		}
-		else {
+			height= y2-y1;
+		}else {
 			posY=y2;
+			height= y1-y2;
 		}
 		
-		if ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)){
+		if (!((posX == x1 && posY == y1) || (posX == x2 && posY == y2))){
 			direction = 1;
 		}else {
 			direction = 0;
 		}
 		
-		width = Math.abs(x2-x1);
-		height= Math.abs(y2-y1);
 		color = c;
 	}
 	/**
