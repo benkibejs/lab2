@@ -19,13 +19,21 @@ public class Line extends GeometricalFormAbstract{
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
 		if ( x1<0 || y1<0 || x2<0 || y2<0) throw new IllegalPositionException();
 		
-		if (x1<x2) posX=x1;
-		else posX=x2;
+		if (x1<x2){
+			posX=x1;
+		}
+		else{
+			posX=x2;
+		}
 		
-		if (y1<y2) posY=y1;
-		else posY=y2;
+		if (y1<y2){
+			posY=y1;
+		}
+		else {
+			posY=y2;
+		}
 		
-		direction = ((posX == x1 && posY == y1) || (posX != x1 && posY != y1)) ? 1 : 0;
+		direction = ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)) ? 1 : 0;
 		
 		width = Math.abs(x2-x1);
 		height= Math.abs(y2-y1);
@@ -63,7 +71,7 @@ public class Line extends GeometricalFormAbstract{
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.drawLine(posX, posY - direction*height, posX + width, posY + (direction - 1)*height);
+		g.drawLine(posX, posY + (direction-1)*height, posX + width, posY - direction*height);
 	}
 
 }
