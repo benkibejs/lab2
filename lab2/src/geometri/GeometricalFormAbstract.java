@@ -20,6 +20,14 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 	 */
 	protected int posY;
 	/**
+	 * The width of the geometrical form.
+	 */
+	protected int width;
+	/**
+	 * The height of the geometrical form.
+	 */
+	protected int height;
+	/**
 	 * The color of the geometrical form.
 	 */
 	protected Color color;
@@ -34,6 +42,15 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 		return posY;
 	}
 	
+	@Override
+	public int getWidth() {
+		return width;
+	}
+	@Override
+	public int getHeight() {
+		return height;
+	}
+
 	@Override
 	public Color getColor() {
 		return color;

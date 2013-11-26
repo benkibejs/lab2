@@ -3,16 +3,7 @@ package geometri;
 import java.awt.*;
 
 public class Rectangle extends GeometricalFormAbstract{
-	
-	/**
-	 * The width of the rectangle 
-	 */
-	protected int width; 
-	/**
-	 * The height of the rectangle
-	 */
-	protected int height;
-	
+
 	/**
 	 * @param x The x-coordinate of the rectangle. 
 	 * @param y The y-coordinate of the rectangle.
@@ -42,22 +33,17 @@ public class Rectangle extends GeometricalFormAbstract{
 		this.width = width;
 		this.height = height;
 	}
-	@Override
-	public int getWidth() {
-		return width;
-	}
-	@Override
-	public int getHeight() {
-		return height;
-	}
+
 	@Override
 	public int getPerimeter() {
 		return width*2 + height*2;
 	}
+	
 	@Override
 	public int getArea() {
 		return width*height;
 	}
+	
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);

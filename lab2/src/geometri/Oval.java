@@ -3,15 +3,7 @@ package geometri;
 import java.awt.*;
 
 public class Oval extends GeometricalFormAbstract{
-	/**
-	 * The width of the oval.
-	 */ 
-	protected int width;
-	/**
-	 * The height of the oval.
-	 */
-	protected int height;
-	 
+
 	/**
 	 * @param x The x-coordinate of the oval.
 	 * @param y The y-coordiante of the oval.
@@ -41,16 +33,6 @@ public class Oval extends GeometricalFormAbstract{
 		this.width = width;
 		this.height = height;
 	 
-	}
-	
-	@Override
-	public int getWidth() {
-		return width;
-	}
-
-	@Override
-	public int getHeight() {
-		return height;
 	}
 	
 	@Override

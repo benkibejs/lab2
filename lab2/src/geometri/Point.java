@@ -14,6 +14,8 @@ public class Point extends GeometricalFormAbstract{
 		if ( x<0 || y<0 ) throw new IllegalPositionException();
 		posX=x;
 		posY=y;
+		width=1;
+		height=1;
 		color = c;
 	}
 	/**
@@ -23,24 +25,21 @@ public class Point extends GeometricalFormAbstract{
 	public Point(GeometricalForm f, Color c){
 		posX = f.getX();
 		posY = f.getY();
+		width=1;
+		height=1;
 		color = c;
 	}
-	@Override
-	public int getWidth() {
-		return 0;
-	}
-	@Override
-	public int getHeight() {
-		return 0;
-	}
+
 	@Override
 	public int getPerimeter() {
 		return 0;
 	}
+	
 	@Override
 	public int getArea() {
 		return 0;
 	}
+	
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);

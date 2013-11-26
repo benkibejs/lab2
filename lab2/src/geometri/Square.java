@@ -3,11 +3,7 @@ package geometri;
 import java.awt.*;
 
 public class Square extends GeometricalFormAbstract{
-	/**
-	 * the length of a side of the Square
-	 */
-	protected int side;
-	
+
 	/**
 	 * @param x The x-coordinate of this square.
 	 * @param y The y-coordinate of this square.
@@ -19,8 +15,10 @@ public class Square extends GeometricalFormAbstract{
 		if ( x<0 || y<0 ) throw new IllegalPositionException();
 		posX=x;
 		posY=y;
+		width = side;
+		height = side;
 		color = c;
-		this.side = side;
+		
 	}
 	
 	/**
@@ -32,33 +30,24 @@ public class Square extends GeometricalFormAbstract{
 		posX = f.getX();
 		posY = f.getY();
 		color = c;
-		this.side = side;		
-	}
-
-	@Override
-	public int getWidth() {
-		return side;
-	}
-
-	@Override
-	public int getHeight() {
-		return side;
+		width = side;
+		height = side;
 	}
 
 	@Override
 	public int getPerimeter() {
-		return side*4;
+		return width*4;
 	}
 
 	@Override
 	public int getArea() {
-		return side*side;
+		return width*height;
 	}
 
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.fillRect(posX, posY, side, side);
+		g.fillRect(posX, posY, width, height);
 	}
 
 }

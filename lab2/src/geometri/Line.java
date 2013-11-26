@@ -4,13 +4,9 @@ import java.awt.*;
 
 public class Line extends GeometricalFormAbstract{
 	/**
-	 * the distance the line goes to the right.
+	 * the direction of the line. (1 is that y increases as x increases, else 0)
 	 */
-	protected int dX;
-	/**
-	 * the distance the line goes down.
-	 */
-	protected int dY;
+	protected int direction;
 	
 	/**
 	 * @param x1 The x-coordinate at the first point of the line.
@@ -22,20 +18,17 @@ public class Line extends GeometricalFormAbstract{
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
 		if ( x1<0 || y1<0 || x2<0 || y2<0) throw new IllegalPositionException();
-		if(x1<x2) {
-			posX=x1;
-			dX=x2-x1;
-		}else{
-			posX=x2;
-			dX=x1-x2;
-		}
-		if(y1<y2){
-			posY=y1;
-			dY=y2-y1;
-		}else{
-			posY=y2;
-			dY=y1-y2;			
-		}
+		
+		if (x1<x2) posX=x1;
+		else posX=x2;
+		
+		if (y1<y2) posY=y1;
+		else posY=y2;
+		
+		direction = ((posX == x1 && posY == y1) || (posX != x1 && posY != y1)) ? 1 : 0;
+		
+		width = Math.abs(x2-x1);
+		height= Math.abs(y2-y1);
 		color = c;
 	}
 	/**
@@ -44,42 +37,33 @@ public class Line extends GeometricalFormAbstract{
 	 * @param c The color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c){
-		if(f1.getX()<f2.getX()) {
-			posX=f1.getX();
-			dX=f2.getX()-f1.getX();
-		}else{
-			posX=f2.getX();
-			dX=f1.getX()-f2.getX();
-		}
-		if(f1.getY()<f2.getY()){
-			posY=f1.getY();
-			dY=f2.getY()-f1.getY();
-		}else{
-			posY=f2.getY();
-			dY=f1.getY()-f2.getY();			
-		}
+		if(f1.getX()<f2.getX()) posX=f1.getX();
+		else posX=f2.getX();
+		
+		if(f1.getY()<f2.getY())	posY=f1.getY();
+		else posY=f2.getY();	
+		
+		direction = ((posX == f1.getX() && posY == f1.getY()) || (posX != f1.getX() && posY != f1.getY())) ? 1 : 0;
+		
+		width = Math.abs(f2.getX()-f1.getX());
+		height= Math.abs(f2.getY()-f1.getY());
 		color = c;
 	}
-	@Override
-	public int getWidth() {
-		return dX;
-	}
-	@Override
-	public int getHeight() {
-		return dY;
-	}
+
 	@Override
 	public int getPerimeter() {
 		return (int) Math.sqrt(getWidth() * getWidth() + getHeight() * getHeight());
 	}
+	
 	@Override
 	public int getArea() {
 		return 0;
 	}
+	
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.drawLine(posX, posY, posX + dX, posY + dY);
+		g.drawLine(posX, posY - direction*height, posX + width, posY + (direction - 1)*height);
 	}
 
 }

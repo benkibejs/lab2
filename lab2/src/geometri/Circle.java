@@ -21,9 +21,10 @@ public class Circle extends GeometricalFormAbstract {
 		if ( x<0 || y<0 ) throw new IllegalPositionException();
 		posX=x;
 		posY=y;
+		width=radius*2;
+		height=radius*2;
 		color = c;
 		this.radius=radius;
-		
 	}
 	
 	/**
@@ -34,17 +35,7 @@ public class Circle extends GeometricalFormAbstract {
 	public Circle(GeometricalForm f, int radius, Color c){
 		
 	}
-	
-	@Override
-	public int getWidth() {
-		return radius*2;
-	}
 
-	@Override
-	public int getHeight() {
-		return radius*2;
-	}
-	
 	@Override
 	public int getPerimeter() {
 		return (int) (2*Math.PI*radius+0.5);
