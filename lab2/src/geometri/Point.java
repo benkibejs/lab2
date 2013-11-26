@@ -43,6 +43,6 @@ public class Point extends GeometricalFormAbstract{
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(color);
-		g.fillOval(posX, posY, 1, 1);
+		g.fillOval(posX, posY, width, height);
 	}
 }

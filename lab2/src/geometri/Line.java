@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Line extends GeometricalFormAbstract{
 	/**
-	 * the direction of the line. (1 is that y increases as x increases, else 0)
+	 * the direction of the line. (1 means that y increases as x increases, else 0)
 	 */
 	protected int direction;
 	

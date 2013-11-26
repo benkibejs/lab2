@@ -64,7 +64,7 @@ public interface GeometricalForm extends Comparable<GeometricalForm> {
 	/**
 	 * Get the height of this forms surrounding rectangle.
 	 *
-	 * @return the x coordinate.
+	 * @return the height.
 	 */
 	public int getHeight();
 

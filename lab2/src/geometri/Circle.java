@@ -48,7 +48,6 @@ public class Circle extends GeometricalFormAbstract {
 	
 	@Override
 	public void fill(Graphics g) {
-		//g.drawOval(getX(), getY(), getWidth(), getHeight());
 		g.setColor(color);
 		g.fillOval(getX(), getY(), getWidth(), getHeight());
 	}
