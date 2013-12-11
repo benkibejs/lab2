@@ -13,12 +13,7 @@ public class Oval extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-		if ( x<0 || y<0 ) throw new IllegalPositionException();
-		posX=x;
-		posY=y;
-		color = c;
-		this.width = width;
-		this.height = height;
+		super(x,y,width,height,c);
 	}
 	/**
 	 * @param f The GeometricalForm that defines the position of the oval.
@@ -27,28 +22,22 @@ public class Oval extends GeometricalFormAbstract{
 	 * @param c The color of the oval.
 	 */
 	public Oval(GeometricalForm f, int width, int height, Color c){
-		posX = f.getX();
-		posY = f.getY();
-		color = c;
-		this.width = width;
-		this.height = height;
-	 
+		super(f,width,height,c);
 	}
 	
 	@Override
 	public int getPerimeter() {
-		return (int) (Math.PI*Math.sqrt(2*(width*width+height*height - (width-height)*(width-height)/2) )+0.5);
+		return (int) (Math.PI*Math.sqrt(2*(getWidth()*getWidth()*getHeight()*getHeight() - (getWidth()-getHeight())*(getWidth()-getHeight())/2) )+0.5);
 	}
 	
 	@Override
 	public int getArea() {
-		return (int) (Math.PI*width*height+0.5);
+		return (int) (Math.PI*getWidth()*getHeight()+0.5);
 	}
 	
 	@Override
 	public void fill(Graphics g) {
-		//g.drawOval(getX(), getY(), getWidth(), getHeight());
-		g.setColor(color);
+		g.setColor(getColor());
 		g.fillOval(getX(), getY(), getWidth(), getHeight());
 	}
 

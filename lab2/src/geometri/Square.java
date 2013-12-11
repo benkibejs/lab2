@@ -2,7 +2,7 @@ package geometri;
 
 import java.awt.*;
 
-public class Square extends GeometricalFormAbstract{
+public class Square extends Rectangle{
 
 	/**
 	 * @param x The x-coordinate of this square.
@@ -12,12 +12,7 @@ public class Square extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Square(int x, int y, int side, Color c) throws IllegalPositionException{
-		if ( x<0 || y<0 ) throw new IllegalPositionException();
-		posX=x;
-		posY=y;
-		width = side;
-		height = side;
-		color = c;
+		super(x,y,side,side,c);
 		
 	}
 	
@@ -27,27 +22,6 @@ public class Square extends GeometricalFormAbstract{
 	 * @param c The color of the square.
 	 */
 	public Square(GeometricalForm f, int side, Color c){
-		posX = f.getX();
-		posY = f.getY();
-		color = c;
-		width = side;
-		height = side;
+		super(f,side,side,c);
 	}
-
-	@Override
-	public int getPerimeter() {
-		return width*4;
-	}
-
-	@Override
-	public int getArea() {
-		return width*height;
-	}
-
-	@Override
-	public void fill(Graphics g) {
-		g.setColor(color);
-		g.fillRect(posX, posY, width, height);
-	}
-
 }

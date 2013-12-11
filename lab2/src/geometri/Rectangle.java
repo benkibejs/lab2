@@ -13,12 +13,7 @@ public class Rectangle extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException{
-		if ( x<0 || y<0 ) throw new IllegalPositionException();
-		posX=x;
-		posY=y;
-		color = c;
-		this.width = width;
-		this.height = height;
+		super(x,y,width,height,c);
 	}
 	/**
 	 * @param f The GeometricalForm that defines the position of the rectangle.
@@ -27,27 +22,23 @@ public class Rectangle extends GeometricalFormAbstract{
 	 * @param c The color of the rectangle.
 	 */
 	public Rectangle(GeometricalForm f, int width, int height, Color c){
-		posX = f.getX();
-		posY = f.getY();
-		color = c;
-		this.width = width;
-		this.height = height;
+		super(f,width,height,c);
 	}
 
 	@Override
 	public int getPerimeter() {
-		return width*2 + height*2;
+		return getWidth()*2 + getHeight()*2;
 	}
 	
 	@Override
 	public int getArea() {
-		return width*height;
+		return getWidth()*getHeight();
 	}
 	
 	@Override
 	public void fill(Graphics g) {
-		g.setColor(color);
-		g.fillRect(posX, posY, width, height);
+		g.setColor(getColor());
+		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 
 }

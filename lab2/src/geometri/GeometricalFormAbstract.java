@@ -14,23 +14,40 @@ public abstract class GeometricalFormAbstract implements GeometricalForm{
 	/**
 	 * The x-coordinate of the geometrical form.
 	 */
-	protected int posX;
+	private int posX;
 	/**
 	 * The y-coordinate of the geometrical form.
 	 */
-	protected int posY;
+	private int posY;
 	/**
 	 * The width of the geometrical form.
 	 */
-	protected int width;
+	private int width;
 	/**
 	 * The height of the geometrical form.
 	 */
-	protected int height;
+	private int height;
 	/**
 	 * The color of the geometrical form.
 	 */
-	protected Color color;
+	private Color color;
+	
+	public GeometricalFormAbstract(int x, int y, int w, int h, Color c) throws IllegalPositionException{
+		if ( x<0 || y<0 ) throw new IllegalPositionException();
+		posX=x;
+		posY=y;
+		width=w;
+		height=h;
+		color=c;
+	}
+	
+	public GeometricalFormAbstract(GeometricalForm f,int w, int h, Color c){
+		posX=f.getX();
+		posY=f.getY();
+		width=w;
+		height=h;
+		color=c;
+	}
 	
 	@Override
 	public int getX() {

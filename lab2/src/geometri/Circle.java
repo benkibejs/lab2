@@ -3,7 +3,7 @@ package geometri;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Circle extends GeometricalFormAbstract {
+public class Circle extends Oval {
 	
 	/**
 	 * The radius of the circle.
@@ -18,12 +18,7 @@ public class Circle extends GeometricalFormAbstract {
 	 * @throws IllegalPositionException
 	 */
 	public Circle(int x, int y, int radius, Color c) throws IllegalPositionException{
-		if ( x<0 || y<0 ) throw new IllegalPositionException();
-		posX=x;
-		posY=y;
-		width=radius*2;
-		height=radius*2;
-		color = c;
+		super(x,y,radius*2,radius*2,c);
 		this.radius=radius;
 	}
 	
@@ -33,7 +28,8 @@ public class Circle extends GeometricalFormAbstract {
 	 * @param c The color of the circle.
 	 */
 	public Circle(GeometricalForm f, int radius, Color c){
-		
+		super(f,radius*2,radius*2,c);
+		this.radius=radius;
 	}
 
 	@Override
@@ -46,10 +42,5 @@ public class Circle extends GeometricalFormAbstract {
 		return (int) (Math.PI*radius*radius+0.5);
 	}
 	
-	@Override
-	public void fill(Graphics g) {
-		g.setColor(color);
-		g.fillOval(getX(), getY(), getWidth(), getHeight());
-	}
-
+	//Väljer här att ha egna getArea och getPerimeter, för att dessa är enkalare och exaktare uttryck för en cirkel.
 }

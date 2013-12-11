@@ -17,20 +17,11 @@ public class Line extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException{
+		super( x1*(x1<x2 ? 1 : 0) + x2*(x2<x1 ? 1 : 0), 
+				y1*(y1<y2 ? 1 : 0) + y2*(y2<y1 ? 1 : 0), 
+				Math.abs(x2-x1), Math.abs(y2-y1), c);
 		
-		if ( x1<0 || y1<0 || x2<0 || y2<0) throw new IllegalPositionException();
-		
-		if (x1<x2) posX=x1;
-		else posX=x2;
-		
-		if (y1<y2) posY=y1;
-		else posY=y2;
-		
-		direction = ((posX == x1 && posY == y1) || (posX == x2 && posY == y2)) ? 1 : 0;
-		
-		width = Math.abs(x2-x1);
-		height= Math.abs(y2-y1);
-		color = c;
+		direction = ((getX() == x1 && getY() == y1) || (getX() == x2 && getY() == y2)) ? 1 : 0;
 	}
 	/**
 	 * @param f1 The GeometricalForm that defines the position of the first point of the line.
@@ -38,18 +29,11 @@ public class Line extends GeometricalFormAbstract{
 	 * @param c The color of the line.
 	 */
 	public Line(GeometricalForm f1, GeometricalForm f2, Color c){
+		super(f1, Math.abs(f2.getX()-f1.getX()), Math.abs(f2.getY()-f1.getY()), c);
+		if (f2.getX()<f1.getX()) place(f2.getX(),getY());
+		if (f2.getY()<f1.getY()) place(getX(),f2.getY());
 		
-		if(f1.getX()<f2.getX()) posX=f1.getX();
-		else posX=f2.getX();
-		
-		if(f1.getY()<f2.getY())	posY=f1.getY();
-		else posY=f2.getY();	
-		
-		direction = ((posX == f1.getX() && posY == f1.getY()) || (posX != f1.getX() && posY != f1.getY())) ? 1 : 0;
-		
-		width = Math.abs(f2.getX()-f1.getX());
-		height= Math.abs(f2.getY()-f1.getY());
-		color = c;
+		direction = ((getX() == f1.getX() && getY() == f1.getY()) || (getX() != f1.getX() && getY() != f1.getY())) ? 1 : 0;
 	}
 
 	@Override
@@ -64,8 +48,8 @@ public class Line extends GeometricalFormAbstract{
 	
 	@Override
 	public void fill(Graphics g) {
-		g.setColor(color);
-		g.drawLine(posX, posY - (direction-1)*height, posX + width, posY + direction*height);
+		g.setColor(getColor());
+		g.drawLine(getX(), getY() - (direction-1)*getHeight(), getX() + getWidth(), getY() + direction*getHeight());
 	}
 
 }

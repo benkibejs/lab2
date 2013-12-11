@@ -11,23 +11,14 @@ public class Point extends GeometricalFormAbstract{
 	 * @throws IllegalPositionException
 	 */
 	public Point(int x, int y, Color c) throws IllegalPositionException{
-		if ( x<0 || y<0 ) throw new IllegalPositionException();
-		posX=x;
-		posY=y;
-		width=1;
-		height=1;
-		color = c;
+		super(x,y,1,1,c);
 	}
 	/**
 	 * @param f This GeometricalForms position will be the position of the point.
 	 * @param c The color of the point.
 	 */
 	public Point(GeometricalForm f, Color c){
-		posX = f.getX();
-		posY = f.getY();
-		width=1;
-		height=1;
-		color = c;
+		super(f,1,1,c);
 	}
 
 	@Override
@@ -42,7 +33,7 @@ public class Point extends GeometricalFormAbstract{
 	
 	@Override
 	public void fill(Graphics g) {
-		g.setColor(color);
-		g.fillOval(posX, posY, width, height);
+		g.setColor(getColor());
+		g.fillOval(getX(), getY(), 1, 1);
 	}
 }
