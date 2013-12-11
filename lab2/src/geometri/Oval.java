@@ -2,6 +2,14 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * A model of a oval.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ *  
+ *
+ */
+
 public class Oval extends GeometricalFormAbstract{
 
 	/**

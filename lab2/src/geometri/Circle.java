@@ -3,6 +3,13 @@ package geometri;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * A model of a circle.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ *
+ */
+
 public class Circle extends Oval {
 	
 	/**
@@ -42,5 +49,5 @@ public class Circle extends Oval {
 		return (int) (Math.PI*radius*radius+0.5);
 	}
 	
-	//Väljer här att ha egna getArea och getPerimeter, för att dessa är enkalare och exaktare uttryck för en cirkel.
+	//Väljer här att ha egna getArea och getPerimeter för en cirkel, då dessa är enklare och exaktare uttryck.
 }

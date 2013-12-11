@@ -2,6 +2,14 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * A model of a square.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ * 
+ *
+ */
+
 public class Square extends Rectangle{
 
 	/**

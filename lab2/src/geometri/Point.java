@@ -2,6 +2,14 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * A model of a point.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ * 
+ *
+ */
+
 public class Point extends GeometricalFormAbstract{
 	
 	/**

@@ -2,6 +2,13 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * A model of a line.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ * 
+ *
+ */
 public class Line extends GeometricalFormAbstract{
 	/**
 	 * the direction of the line. (1 means that y increases as x increases, else 0)
@@ -49,7 +56,7 @@ public class Line extends GeometricalFormAbstract{
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(getColor());
-		g.drawLine(getX(), getY() - (direction-1)*getHeight(), getX() + getWidth(), getY() + direction*getHeight());
+		g.drawLine(getX(), getY() + (1 - direction)*getHeight(), getX() + getWidth(), getY() + direction*getHeight());
 	}
 
 }

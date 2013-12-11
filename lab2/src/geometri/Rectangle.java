@@ -2,6 +2,14 @@ package geometri;
 
 import java.awt.*;
 
+/**
+ * A model of a rectangle.
+ * 
+ * @author Group 107: Benjamin Lindberg and Rasti Tengman
+ * 
+ *
+ */
+
 public class Rectangle extends GeometricalFormAbstract{
 
 	/**
